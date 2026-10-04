@@ -16,10 +16,11 @@
 
 ## 🎯 The Problem
 
-- **The Thundering Herd**: When a hot cache key expires, thousands of requests arrive at the same millisecond.
+- **The Thundering Herd**: When a hot cache key expires, thousands of requests arrive at the exact same millisecond.
 - **Database Starvation**: All concurrent requests simultaneously fire duplicate heavy queries at PostgreSQL.
 - **Cascading Outages**: Database connection pools exhaust immediately, triggering HTTP 500 & 504 gateway timeouts.
-- **Wasted Cloud Spend**: Repeating identical expensive calculations thousands of times concurrently wastes compute.
+- **Skyrocketing Cloud Costs**: Uncontrolled query spikes trigger unnecessary database auto-scaling and inflate cloud infrastructure bills.
+- **Wasted Compute & API Quotas**: Repeating identical expensive calculations thousands of times burns CPU cycles and drains paid API limits.
 
 ---
 
