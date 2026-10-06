@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "async-singleflight"
+version = "0.1.0"
+description = "Production-grade request coalescing & anti-cache-stampede engine for Python asyncio and FastAPI."
+readme = "README.md"
+authors = [
+    { name = "Devv Sagar", email = "devvsag@gmail.com" }
+]
+license = { text = "Apache-2.0" }
+requires-python = ">=3.11"
+keywords = [
+    "asyncio",
+    "singleflight",
+    "fastapi",
+    "concurrency",
+    "cache-stampede",
+    "thundering-herd",
+    "performance"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Framework :: AsyncIO",
+    "Framework :: FastAPI",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+# The core concurrency engine has ZERO external dependencies!
+dependencies = []
+
+[project.optional-dependencies]
+fastapi = [
+    "fastapi>=0.100.0",
+    "starlette>=0.30.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.3.0",
+    "httpx>=0.27.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/devvx/async-singleflight"
+Repository = "https://github.com/devvx/async-singleflight"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes (detects bugs and undefined variables)
+    "I",   # isort (automatically organizes imports)
+    "B",   # flake8-bugbear (detects common async & concurrency traps)
+    "UP",  # pyupgrade (enforces modern Python 3.11+ syntax)
+]
